@@ -1,0 +1,13 @@
+# Platform-only metadata for the agentic-platform poller/gateway.
+# The rest of this agent is Anthropic's native Claude Code PLUGIN
+# (.claude-plugin/plugin.json + skills/ + .mcp.json), loaded as a unit via
+# plugins=[{type: local, path: <repo>}]. Source:
+# https://github.com/anthropics/claude-for-legal/tree/main/ai-governance-legal
+name: ai-governance-legal
+description: >-
+  Triages proposed AI use cases against your registry, runs impact assessments,
+  reviews vendor AI terms for training-on-data and liability gaps, and keeps your
+  AI policy current with practice.
+model: claude-sonnet-4-6
+permission_mode: bypassPermissions
+enabled: true
