@@ -1,0 +1,33 @@
+{
+  "env": {
+    "SELFTEST_ENV_TOKEN": "ENV-OK-5E6F"
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash(echo:*)",
+      "Bash(printf:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "mcp__filesystem"
+    ],
+    "deny": [
+      "Bash(rm *)"
+    ]
+  },
+  "hooks": {
+    "//": "Intentional: the gateway does NOT translate hooks yet. This block exists so the agent shows up in Agent.unsupported and we can confirm graceful degradation (no crash).",
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          { "type": "command", "command": "echo 'selftest hook fired (should be reported as unsupported)' >&2" }
+        ]
+      }
+    ]
+  }
+}

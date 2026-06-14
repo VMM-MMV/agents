@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "//": "stdio MCP server. Runs as a subprocess INSIDE the gateway container, so npx must be in the gateway image. The agent calls mcp__filesystem__* tools to prove MCP works. Scoped to the cwd ('.') = the per-session work dir.",
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."]
+    }
+  }
+}

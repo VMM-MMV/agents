@@ -1,0 +1,11 @@
+# Platform-only metadata. This agent is a CONFORMANCE PROBE: it exercises every
+# capability the gateway maps from a native Claude Code repo onto the Agent SDK
+# and reports PASS/FAIL. See CLAUDE.md for the diagnostic it runs.
+name: platform-selftest
+description: >-
+  Self-test / conformance probe. Exercises memory, settings (env + permissions),
+  skills, a subagent, MCP (stdio, in-container), built-in tools, file output, and
+  model routing, then emits a PASS/FAIL table.
+model: claude-sonnet-4-6
+permission_mode: bypassPermissions
+enabled: true
