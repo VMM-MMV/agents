@@ -20,12 +20,11 @@
     ]
   },
   "hooks": {
-    "//": "Intentional: the gateway does NOT translate hooks yet. This block exists so the agent shows up in Agent.unsupported and we can confirm graceful degradation (no crash).",
-    "PreToolUse": [
+    "//": "Translated by the gateway into programmatic SDK hooks (opt-in via allow_hooks: true in platform.yaml). This UserPromptSubmit hook injects a sentinel into the model context via additionalContext — it appears in NO file the agent can read, so quoting it proves the hook ran and round-tripped through the shell->callback bridge.",
+    "UserPromptSubmit": [
       {
-        "matcher": "Bash",
         "hooks": [
-          { "type": "command", "command": "echo 'selftest hook fired (should be reported as unsupported)' >&2" }
+          { "type": "command", "command": "printf '%s' '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"HOOK-OK-3C5D (injected by a translated UserPromptSubmit hook)\"}}'" }
         ]
       }
     ]

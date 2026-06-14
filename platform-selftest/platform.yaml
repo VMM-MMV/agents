@@ -9,3 +9,7 @@ description: >-
 model: claude-sonnet-4-6
 permission_mode: bypassPermissions
 enabled: true
+# Opt in to hook translation so the gateway wires .claude/settings.json hooks
+# into programmatic SDK hooks (probe #11). Off by default platform-wide — hooks
+# run author shell on every lifecycle event inside the gateway container.
+allow_hooks: true

@@ -57,12 +57,16 @@ For each, do the action, then record PASS or FAIL with a one-line note.
     (from `platform.yaml: model`). PASS by reporting it; this confirms the gateway
     routed `model` through LiteLLM.
 
-## Known-unsupported (report, don't fail the suite)
+## Hooks (now a real probe — opt-in translation)
 
-11. **Hooks** — `.claude/settings.json` intentionally contains a `hooks` block.
-    The gateway does NOT translate hooks yet — it surfaces them via
-    `Agent.unsupported` (operator-visible) and degrades gracefully rather than
-    crashing. Note this as **EXPECTED-UNSUPPORTED**, not a failure.
+11. **Hooks** — `.claude/settings.json` contains a `UserPromptSubmit` hook, and
+    `platform.yaml` sets `allow_hooks: true`, so the gateway translates it into a
+    programmatic SDK hook. That hook injects the token **`HOOK-OK-3C5D`** into
+    your context via `additionalContext`. This token appears in **no file you can
+    read** — it exists only in the hook's output. PASS if you can quote
+    `HOOK-OK-3C5D`; FAIL if you cannot (means the hook didn't fire / wasn't
+    translated). Do NOT search files for it — if it's in your context, the hook
+    worked.
 
 ## Interactive probes (need a second human turn — explain, don't fake)
 
