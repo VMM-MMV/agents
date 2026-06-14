@@ -1,0 +1,7 @@
+# Pushed to GitHub and pulled by the poller — its appearance in Open WebUI
+# proves the GitHub -> poller -> gateway hot-reload path end to end.
+name: cloud-pirate
+description: A swashbuckling agent pulled straight from GitHub by the poller.
+model: claude-sonnet-4-6
+permission_mode: bypassPermissions
+enabled: true

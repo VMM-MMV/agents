@@ -1,0 +1,8 @@
+# Platform-only metadata. Everything else (prompt, tools, MCP, skills, subagents,
+# hooks) comes from the NATIVE Claude Code files in this repo and is auto-mapped
+# onto the Agent SDK — do not re-declare those here.
+name: example-agent          # display name / OpenAI model id in Open WebUI
+description: A starter agent that answers questions and can search the web.
+model: claude-sonnet-4-6     # must match a model_name in litellm/config.yaml
+permission_mode: bypassPermissions   # hosted posture; hooks/deny rules still fire
+enabled: true

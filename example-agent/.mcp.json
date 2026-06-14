@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "//": "Author's native MCP config. Auto-loaded via setting_sources=['project'].",
+    "//stdio-example": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "."],
+      "comment": "stdio servers run inside the gateway container; npx must be in the image"
+    },
+    "//http-example": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": { "Authorization": "Bearer ${GITHUB_MCP_TOKEN}" }
+    }
+  }
+}
